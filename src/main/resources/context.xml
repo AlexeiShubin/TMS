@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="1" class="task.Task" scope="prototype">
+        <property name="massage" value="уборка"/>
+    </bean>
+
+    <bean id="2" class="task.Task" scope="prototype">
+        <property name="massage" value="прогулка"/>
+    </bean>
+
+    <bean id="3" class="task.Task" scope="prototype">
+        <property name="massage" value="готовка"/>
+        <property name="subtask">
+            <list>
+                <bean class="task.Subtask">
+                    <property name="massage" value="нарезка"/>
+                </bean>
+
+                <bean class="task.Subtask">
+                    <property name="massage" value="варка"/>
+                </bean>
+
+                <bean class="task.Subtask">
+                    <property name="massage" value="мытье посуды"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+</beans>
