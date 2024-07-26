@@ -5,7 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<form action="changeUser" method="get" class="form-example">
+<form action="changeUser" method="post" class="form-example">
+
     <div class="form-example">
         <label for="id_cl">Enter ID of employee to change login it: </label>
         <input type="text" name="id" id="id_cl"/>
