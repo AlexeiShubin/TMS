@@ -9,13 +9,13 @@ public class Runner {
     public static void main(String[] args) {
         ApplicationContext applicationContext=new ClassPathXmlApplicationContext("context.xml");
         System.out.println("Для обозначения, что задача выполнена введите +");
-        Task task1=applicationContext.getBean("1", Task.class);
+        Task task1=applicationContext.getBean("task1", Task.class);
         task1.getMassage();
         Performance.performance();
-        Task task2=applicationContext.getBean("2", Task.class);
+        Task task2=applicationContext.getBean("task2", Task.class);
         task2.getMassage();
         Performance.performance();
-        Task task3=applicationContext.getBean("3", Task.class);
+        Task task3=applicationContext.getBean("task3", Task.class);
         task3.getMassage();
     }
 }
