@@ -4,31 +4,33 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="1" class="task.Task" scope="prototype">
+    <bean id="task1" class="task.Task" scope="prototype">
         <property name="massage" value="уборка"/>
     </bean>
 
-    <bean id="2" class="task.Task" scope="prototype">
+    <bean id="task2" class="task.Task" scope="prototype">
         <property name="massage" value="прогулка"/>
     </bean>
 
-    <bean id="3" class="task.Task" scope="prototype">
+    <bean id="subtask1" class="task.Subtask">
+        <property name="massage" value="нарезка"/>
+    </bean>
+
+    <bean id="subtask2" class="task.Subtask">
+        <property name="massage" value="варка"/>
+    </bean>
+
+    <bean id="subtask3" class="task.Subtask">
+        <property name="massage" value="мытье посуды"/>
+    </bean>
+
+    <bean id="task3" class="task.Task" scope="prototype">
         <property name="massage" value="готовка"/>
         <property name="subtask">
             <list>
-                <bean class="task.Subtask">
-                    <property name="massage" value="нарезка"/>
-                </bean>
-
-                <bean class="task.Subtask">
-                    <property name="massage" value="варка"/>
-                </bean>
-
-                <bean class="task.Subtask">
-                    <property name="massage" value="мытье посуды"/>
-                </bean>
+                <ref bean="subtask1"/>
+                <ref bean="subtask2"/>
+                <ref bean="subtask3"/>
             </list>
         </property>
     </bean>
-
-</beans>
