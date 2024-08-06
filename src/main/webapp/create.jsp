@@ -5,7 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<form action="createUser" method="get" class="form-example">
+<form action="createUser" method="post" class="form-example">
+
     <div class="form-example">
         <label for="first_name">Enter First Name of employee:</label>
         <input type="text" name="name" id="name"/>
