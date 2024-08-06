@@ -19,10 +19,7 @@ public class ServletCreate extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (!isInitialized) {
-            getServletContext().getRequestDispatcher("/create.jsp").forward(req, resp);
-            isInitialized = true;
-        }
+        
         Connection connection;
         ResultSet resultSet;
         int id = 0;
@@ -45,6 +42,5 @@ public class ServletCreate extends HttpServlet {
         } catch (Exception e) {
             getServletContext().getRequestDispatcher("/error.jsp").forward(req, resp);
         }
-        isInitialized=false;
     }
 }
