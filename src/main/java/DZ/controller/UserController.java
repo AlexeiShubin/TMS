@@ -2,11 +2,12 @@ package DZ.controller;
 
 
 import DZ.connect.ConnectSQL;
-import DZ.examination.Examination;
 import DZ.user.User;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.Connection;
@@ -15,20 +16,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Controller
-public class JDBCController {
+public class UserController {
     @GetMapping("/create")
     public String createPage() {
         return "create";
     }
 
-    @GetMapping("/createUser")
+    @PostMapping("/createUser")
     public String createUser(User user) {
         try {
             Connection connection = ConnectSQL.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO employees VALUES (?, ?, ?, ?)");
-            PreparedStatement maxID = connection.prepareStatement("SELECT MAX(id) FROM EMPLOYEES");
+            PreparedStatement lastId = connection.prepareStatement("SELECT MAX(id) FROM EMPLOYEES");
 
-            ResultSet resultSet = maxID.executeQuery();
+            ResultSet resultSet = lastId.executeQuery();
 
             int id = 0;
             while (resultSet.next()) id = resultSet.getInt("max");
@@ -53,7 +54,7 @@ public class JDBCController {
     @GetMapping("/getUser")
     public String getUser(@RequestParam(value = "id", required = false) String idStr, Model model) {
 
-        if (idStr==null||idStr.isEmpty()||!Examination.isDigit(idStr)){
+        if (idStr.isEmpty()||!NumberUtils.isCreatable(idStr)){
             return "error";
         }
 
@@ -87,10 +88,10 @@ public class JDBCController {
         return "change";
     }
 
-    @GetMapping("/changeUser")
+    @PostMapping("/changeUser")
     public String changeUser(@RequestParam(value = "id", required = false) String idStr, @RequestParam(value = "name", required = false) String newFirstName){
 
-        if (idStr==null||idStr.isEmpty()||!Examination.isDigit(idStr)){
+        if (idStr.isEmpty()||!NumberUtils.isCreatable(idStr)){
             return "error";
         }
 
@@ -116,10 +117,10 @@ public class JDBCController {
         return "delete";
     }
 
-    @GetMapping("/deleteUser")
+    @PostMapping("/deleteUser")
     public String deleteUser(@RequestParam(value = "id", required = false) String idStr, Model model){
 
-        if (idStr==null||idStr.isEmpty()||!Examination.isDigit(idStr)){
+        if (idStr.isEmpty()||!NumberUtils.isCreatable(idStr)){
             return "error";
         }
 
