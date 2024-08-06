@@ -12,8 +12,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import static servlet.ServletStart.isInitialized;
-
 @WebServlet("/createUser")
 public class ServletCreate extends HttpServlet {
 
