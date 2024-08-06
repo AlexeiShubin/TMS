@@ -19,10 +19,6 @@ public class ServletDelete extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        if (!isInitialized) {
-            getServletContext().getRequestDispatcher("/delete.jsp").forward(req, resp);
-            isInitialized = true;
-        }
         String idStr = req.getParameter("id");
 
         if (idStr == null || idStr.isEmpty()) {
@@ -44,6 +40,5 @@ public class ServletDelete extends HttpServlet {
             isInitialized=false;
             getServletContext().getRequestDispatcher("/error.jsp").forward(req, resp);
         }
-        isInitialized=false;
     }
 }
