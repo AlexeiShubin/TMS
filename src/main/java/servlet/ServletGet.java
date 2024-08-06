@@ -25,7 +25,6 @@ public class ServletGet extends HttpServlet {
         String idStr = req.getParameter("id");
         if (idStr == null || idStr.isEmpty()) {
             getServletContext().getRequestDispatcher("/error.jsp").forward(req, resp);
-            isInitialized=false;
             return;
         }
 
