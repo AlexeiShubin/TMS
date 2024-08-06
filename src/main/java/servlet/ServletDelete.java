@@ -35,7 +35,6 @@ public class ServletDelete extends HttpServlet {
             req.setAttribute("name", Integer.parseInt(req.getParameter("id")));
             getServletContext().getRequestDispatcher("/endDelete.jsp").forward(req, resp);
         } catch (Exception e) {
-            isInitialized=false;
             getServletContext().getRequestDispatcher("/error.jsp").forward(req, resp);
         }
     }
