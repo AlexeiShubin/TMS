@@ -35,7 +35,6 @@ public class ServletChange extends HttpServlet {
 
             getServletContext().getRequestDispatcher("/endChange.jsp").forward(req, resp);
         } catch (Exception e) {
-            isInitialized=false;
             getServletContext().getRequestDispatcher("/error.jsp").forward(req, resp);
         }
     }
