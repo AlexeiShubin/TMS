@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
 @WebServlet("/changeUser")
 public class ServletChange extends HttpServlet {
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String idStr = req.getParameter("id");
 
