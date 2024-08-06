@@ -13,18 +13,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static servlet.ServletStart.isInitialized;
-
 @WebServlet("/getUser")
 public class ServletGet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        if (!isInitialized) {
-            getServletContext().getRequestDispatcher("/get.jsp").forward(req, resp);
-            isInitialized = true;
-        }
 
         Connection connection;
         ResultSet resultSet;
@@ -39,7 +32,6 @@ public class ServletGet extends HttpServlet {
 
         if (Integer.parseInt(req.getParameter("id")) < 0) {
             getServletContext().getRequestDispatcher("/error.jsp").forward(req, resp);
-            isInitialized=false;
         }
 
         try {
@@ -58,6 +50,5 @@ public class ServletGet extends HttpServlet {
             isInitialized=false;
             getServletContext().getRequestDispatcher("/error.jsp").forward(req, resp);
         }
-        isInitialized=false;
     }
 }
