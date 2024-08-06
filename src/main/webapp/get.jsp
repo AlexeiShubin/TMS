@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="getUser" method="get" class="form-example">
+<form action="getUser" method="post" class="form-example">
     <div class="form-example">
         <label for="id">Enter ID of employee to show it: </label>
         <input type="text" name="id" id="id"/>
