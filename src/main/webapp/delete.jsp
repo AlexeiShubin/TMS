@@ -5,7 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<form action="deleteUser" method="get" class="form-example">
+<form action="deleteUser" method="post" class="form-example">
+
     <div class="form-example">
         <label for="id_d">Enter ID of employee to delete it: </label>
         <input type="text" name="id" id="id_d"/>
