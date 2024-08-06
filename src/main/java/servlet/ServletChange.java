@@ -18,16 +18,10 @@ public class ServletChange extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        if (!isInitialized) {
-            getServletContext().getRequestDispatcher("/change.jsp").forward(req, resp);
-            isInitialized = true;
-        }
-
         String idStr = req.getParameter("id");
 
         if (idStr == null || idStr.isEmpty()) {
             getServletContext().getRequestDispatcher("/error.jsp").forward(req, resp);
-            isInitialized=false;
             return;
         }
 
@@ -46,6 +40,5 @@ public class ServletChange extends HttpServlet {
             isInitialized=false;
             getServletContext().getRequestDispatcher("/error.jsp").forward(req, resp);
         }
-        isInitialized=false;
     }
 }
