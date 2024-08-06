@@ -11,8 +11,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import static servlet.ServletStart.isInitialized;
-
 @WebServlet("/changeUser")
 public class ServletChange extends HttpServlet {
 
