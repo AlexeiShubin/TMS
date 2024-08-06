@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Task {
     private String massage;
-    private List<Subtask> subtasks;
+    private List<Subtask> subtask;
 
 
     public void getMassage() {
