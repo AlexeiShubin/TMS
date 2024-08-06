@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 public class ServletDelete extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String idStr = req.getParameter("id");
 
