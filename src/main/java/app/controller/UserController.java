@@ -27,7 +27,8 @@ public class UserController {
         try {
             Connection connection = Connect.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO employees VALUES (?, ?, ?, ?)");
-            PreparedStatement lastId = connection.prepareStatement("SELECT MAX(id) FROM EMPLOYEES");
+            PreparedStatement lastIdStatement = connection.prepareStatement("SELECT MAX(id) FROM EMPLOYEES");
+
 
             ResultSet resultSet = lastId.executeQuery();
 
